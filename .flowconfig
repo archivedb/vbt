@@ -1,0 +1,8 @@
+[ignore]
+.*/dist/.*
+.*/docs/.*
+.*/reports/.*
+.*/coverage/.*
+.*/node_modules/.*
+
+[libs]

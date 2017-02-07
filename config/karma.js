@@ -3,9 +3,11 @@
 import { projectPath } from '../build/paths'
 import webpackTestConfig from './webpack.test'
 
+const entry = projectPath('test/unit/index.js')
+
 // https://github.com/webpack/karma-webpack/
 // https://karma-runner.github.io/latest/config/configuration-file.html
-module.exports = (config: Object) => {
+module.exports = (config: any) => {
   config.set({
     // to run in additional browsers:
     // 1. install corresponding karma launcher
@@ -14,9 +16,9 @@ module.exports = (config: Object) => {
     browsers: ['PhantomJS'],
     frameworks: ['mocha', 'sinon-chai'],
     reporters: ['spec', 'coverage'],
-    files: [projectPath('test/unit/index.js')],
+    files: [entry],
     preprocessors: {
-      [projectPath('test/unit/index.js')]: ['webpack', 'sourcemap'],
+      [entry]: ['webpack', 'sourcemap'],
     },
     webpack: webpackTestConfig,
     webpackMiddleware: { noInfo: true },

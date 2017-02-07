@@ -2,6 +2,7 @@
 
 // https://vuejs-templates.github.io/webpack/
 
+import chalk from 'chalk'
 import devEnv from './env.dev'
 import prodEnv from './env.prod'
 import testEnv from './env.test'
@@ -10,7 +11,7 @@ import { projectPath } from '../build/paths'
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development'
 
-console.log(`[config/index.js] NODE_ENV: ${process.env.NODE_ENV}\n`)
+console.log(chalk.green(`[config] NODE_ENV ${process.env.NODE_ENV}\n`))
 
 const base = {
   assetsPublicPath: '/',

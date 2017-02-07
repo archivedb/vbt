@@ -1,12 +1,29 @@
 // @flow
 
+import path from 'path'
+import chalk from 'chalk'
 import spawn from 'cross-spawn'
+import { existsSync } from 'fs'
+
 import devServer from './dev-server'
+import { buildRootPath } from './paths'
 
 const options = [
-  '--config', 'config/nightwatch.js',
+  '--config', buildRootPath('config/nightwatch.js'),
   '--env', 'chrome',
 ]
+
+// 'node_modules/nightwatch/lib/index.js'
+const nightwatchPath = require.resolve('nightwatch')
+
+const nightwatchExecPath = path.join(path.dirname(nightwatchPath), '../bin/nightwatch')
+
+if (!existsSync(nightwatchExecPath)) {
+  console.error(chalk.red(`can not access nightwatch at ${nightwatchExecPath}\n`))
+  process.exit(1)
+}
+
+console.log(chalk.green(`using nightwatch at ${nightwatchExecPath}\n`))
 
 export const start = () => {
   // 1. start the dev server using production config
@@ -18,7 +35,7 @@ export const start = () => {
   // or override the environment flag, for example: `npm run e2e -- --env chrome,firefox`
   // for more information on nightwatch's config file, see
   // http://nightwatchjs.org/guide#settings-file
-  const runner = spawn('node_modules/.bin/nightwatch', options, { stdio: 'inherit' })
+  const runner = spawn(nightwatchExecPath, options, { stdio: 'inherit' })
 
   runner.on('error', (err) => {
     devServer.close()

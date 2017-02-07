@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "7"
+
+before_script:
+  - npm i typescript
+  - npm i vue
+  - node_modules/.bin/flow-typed install
+
+script:
+  - node_modules/.bin/flow check
+  - npm run lint
+  - npm test
+
+# after_success:
+#   - npm i coveralls && cat coverage/lcov.info | coveralls

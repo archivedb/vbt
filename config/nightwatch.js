@@ -5,13 +5,14 @@ require('../build/register')
 const chromedriver = require('chromedriver')
 const seleniumServer = require('selenium-server')
 const { dev: config } = require('../config')
+const { projectPath } = require('../build/paths')
 
 // http://nightwatchjs.org/guide#settings-file
 module.exports = {
-  src_folders: ['test/e2e/specs'],
-  output_folder: 'test/e2e/reports',
-  custom_commands_path: ['node_modules/nightwatch-helpers/commands'],
-  custom_assertions_path: ['node_modules/nightwatch-helpers/assertions'],
+  src_folders: [projectPath('test/e2e/specs')],
+  output_folder: projectPath('test/e2e/reports'),
+  custom_commands_path: [projectPath('node_modules/nightwatch-helpers/commands')],
+  custom_assertions_path: [projectPath('node_modules/nightwatch-helpers/assertions')],
 
   selenium: {
     start_process: true,

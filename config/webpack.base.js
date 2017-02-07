@@ -56,7 +56,11 @@ export default {
       exclude: /node_modules/,
     }, {
       test: /\.tsx?$/,
-      loader: 'ts-loader',
+      use: [{
+        loader: 'babel-loader',
+      }, {
+        loader: 'ts-loader',
+      }],
       exclude: /node_modules/,
     }, {
       // TODO https://webpack.js.org/guides/migrating/#json-loader-is-not-required-anymore

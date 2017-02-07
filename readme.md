@@ -10,6 +10,7 @@ used in [xms-fe](https://github.com/airt/xms-fe)
 - [x] unit tests with karma
 - [x] e2e tests with nightwatch
 - [x] hot reload
+- [x] typescript
 - [ ] mocks
 - [ ] documents
 - [ ] custom configurations
@@ -17,6 +18,12 @@ used in [xms-fe](https://github.com/airt/xms-fe)
 ## installation
 
 ```sh
+# install from github
+yarn add github:airt/vbt#develop -D
+
+# install from github with tag
+yarn add github:airt/vbt#v0.0.1 -D
+
 # install from github with hash
 # maybe need `yarn cache clean`
 yarn add github:airt/vbt#hash000 -D

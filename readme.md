@@ -1,6 +1,6 @@
 # vbt
 
-<!--[![Build Status][build-badge]][build-status]-->
+[![Build Status][build-badge]][build-status]
 
 simple build tool for vue applications,
 used in [xms-fe](https://github.com/airt/xms-fe)
@@ -30,6 +30,8 @@ yarn add github:airt/vbt#hash000 -D
 ```
 
 ## usage
+
+[examples/simple](https://github.com/airt/vbt/tree/develop/examples/simple)
 
 ### scripts
 

@@ -2,6 +2,7 @@
 
 import path from 'path'
 
+// 'node_modules/vbt/src'
 export const buildRootPath = (...paths: Array<string>) =>
   path.join(__dirname, '..', ...paths)
 

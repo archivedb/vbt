@@ -1,0 +1,21 @@
+// https://www.typescriptlang.org/docs/handbook/compiler-options.html
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "preserve",
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": true,
+    "sourceMap": true,
+    "declaration": true,
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "removeComments": false,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["dom", "es6", "es2017"]
+  }
+}

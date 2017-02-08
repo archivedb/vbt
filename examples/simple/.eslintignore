@@ -1,6 +1,5 @@
 dist/**/*
 docs/**/*
-examples/**/*
 flow-typed/**/*
 test/e2e/reports/**/*
 test/unit/coverage/**/*

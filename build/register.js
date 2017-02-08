@@ -8,6 +8,6 @@ require('babel-register')({
     'transform-es2015-modules-commonjs',
   ],
   ignore: (filename) => (
-    filename.includes('node_modules') && !filename.includes('vbt')
+    filename.includes('node_modules') && !filename.includes('node_modules/vbt')
   ),
 })

@@ -1,0 +1,16 @@
+{
+  "comments": false,
+  "presets": [
+    "stage-2",
+    "latest"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-flow-strip-types"
+  ],
+  "env": {
+    "testing": {
+      "plugins": ["istanbul"]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "simple-app",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "tslib": "^1.0.0",
+    "vue": "^2.0.0",
+    "vue-router": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.0.0",
+    "@types/mocha": "^2.0.0",
+    "@types/node": "^7.0.0",
+    "eslint": "^3.0.0",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-promise": "^3.0.0",
+    "eslint-plugin-standard": "^2.0.0",
+    "tslint": "^4.0.0",
+    "tslint-config-standard": "^3.0.0",
+    "typescript": "^2.1.0",
+    "vbt": "github:airt/vbt#develop"
+  },
+  "entry": {
+    "app": "src/index.js"
+  },
+  "scripts": {
+    "dev": "vbt dev",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint '**/*.js' '**/*.vue'",
+    "lint:ts": "tslint '**/*.ts' --exclude '**/*.d.ts' --exclude 'node_modules/**/*'",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "vbt test unit",
+    "test:e2e": "vbt test e2e",
+    "build": "vbt build"
+  }
+}

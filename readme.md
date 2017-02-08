@@ -76,22 +76,19 @@ vbt build
 
 ```
 src                     → application sources
- └ index.js             → bootstrap
+ └ index.js             → application entry
+ └ index.html           → html template
 test                    → application tests
  └ e2e                  → e2e tests
+  └ reports             → e2e reports
+  └ specs               → e2e specs
  └ unit                 → unit tests
+  └ coverage            → unit coverage
+  └ specs               → unit specs
+  └ index.js            → unit entry
 static                  → static asset files
 proxy.config.js         → dev server proxy config
 dist                    → generated stuff
-```
-
-## todo
-
-maybe u need install something manually
-
-```sh
-node node_modules/chromedriver/install.js
-node node_modules/phantomjs-prebuilt/install.js
 ```
 
 ## license

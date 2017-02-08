@@ -1,0 +1,10 @@
+// https://palantir.github.io/tslint/rules/
+// https://github.com/blakeembrey/tslint-config-standard/blob/master/tslint.js
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "trailing-comma": [true, { "multiline": "always", "singleline": "never" }],
+    "linebreak-style": [true, "LF"],
+    "quotemark": [true, "single", "jsx-double", "avoid-escape"]
+  }
+}

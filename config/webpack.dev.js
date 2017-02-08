@@ -6,9 +6,10 @@ import HtmlPlugin from 'html-webpack-plugin'
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 
 import { dev as config } from '../config'
-import { buildRootPath } from '../build/paths'
-import { styleLoaders, mapObjectValues, stringifyObjectValues } from '../build/utils'
 import webpackBaseConfig from './webpack.base'
+import { buildRootPath } from '../utils/paths'
+import { styleLoaders } from '../utils/webpack-assets'
+import { mapObjectValues, stringifyObjectValues } from '../utils/object'
 
 const addDevClientToEntry =
   mapObjectValues(v => [v].concat(buildRootPath('build/dev-client')))

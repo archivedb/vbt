@@ -1,6 +1,6 @@
 // @flow
 
-import { projectPath } from '../build/paths'
+import { projectPath } from '../utils/paths'
 import webpackTestConfig from './webpack.test'
 
 const entry = projectPath('test/unit/index.js')

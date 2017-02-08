@@ -1,7 +1,7 @@
 // @flow
 
 import karma from 'karma'
-import { buildRootPath } from './paths'
+import { buildRootPath } from '../utils/paths'
 
 const options = {
   configFile: buildRootPath('config/karma.js'),

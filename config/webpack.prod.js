@@ -7,8 +7,9 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { build as config } from '../config'
-import { assetsPath, styleLoaders, stringifyObjectValues } from '../build/utils'
 import webpackBaseConfig from './webpack.base'
+import { stringifyObjectValues } from '../utils/object'
+import { generateAssetsPath, styleLoaders } from '../utils/webpack-assets'
 
 const webpackProdConfig = merge(webpackBaseConfig, {
   devtool: config.productionSourceMap ? '#source-map' : false,
@@ -17,8 +18,8 @@ const webpackProdConfig = merge(webpackBaseConfig, {
   },
   output: {
     path: config.assetsRoot,
-    filename: assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: assetsPath('js/[id].[chunkhash].js'),
+    filename: generateAssetsPath('js/[name].[chunkhash].js'),
+    chunkFilename: generateAssetsPath('js/[id].[chunkhash].js'),
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -30,7 +31,7 @@ const webpackProdConfig = merge(webpackBaseConfig, {
       sourceMap: true,
     }),
     // extract css into its own file
-    new ExtractTextPlugin(assetsPath('css/[name].[contenthash].css')),
+    new ExtractTextPlugin(generateAssetsPath('css/[name].[contenthash].css')),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlPlugin({
       filename: config.index,

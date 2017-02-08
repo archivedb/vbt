@@ -5,8 +5,9 @@ import eslintFriendlyFormatter from 'eslint-friendly-formatter'
 
 import config from '../config'
 import vueLoaderConfig from '../config/vue-loader'
-import { projectPath } from '../build/paths'
-import { assetsPath, mapObjectValues } from '../build/utils'
+import { projectPath } from '../utils/paths'
+import { mapObjectValues } from '../utils/object'
+import { generateAssetsPath } from '../utils/webpack-assets'
 
 const projectPackageConfig =
   JSON.parse(readFileSync(projectPath('package.json'), 'utf-8'))
@@ -71,14 +72,14 @@ export default {
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: assetsPath('images/[name].[hash:7].[ext]'),
+        name: generateAssetsPath('images/[name].[hash:7].[ext]'),
       },
     }, {
       test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: assetsPath('fonts/[name].[hash:7].[ext]'),
+        name: generateAssetsPath('fonts/[name].[hash:7].[ext]'),
       },
     }],
   },

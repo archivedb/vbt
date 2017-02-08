@@ -3,7 +3,7 @@
 import autoprefixer from 'autoprefixer'
 
 import config from '../config'
-import { vueCssLoaders } from '../build/utils'
+import { vueCssLoaders } from '../utils/webpack-assets'
 
 // check env & config/index.js to decide whether to enable css source maps for the
 // various preprocessor loaders added to vue-loader at the end of this file

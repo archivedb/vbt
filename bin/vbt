@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-require('../build/register')
+require('../utils/register')
 
-require('../build').run(process.argv)
+require('../build/cli').run(process.argv)

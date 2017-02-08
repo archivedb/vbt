@@ -4,8 +4,9 @@ import webpack from 'webpack'
 import merge from 'webpack-merge'
 
 import config from '../config'
-import { styleLoaders, stringifyObjectValues } from '../build/utils'
 import webpackBaseConfig from './webpack.base'
+import { styleLoaders } from '../utils/webpack-assets'
+import { stringifyObjectValues } from '../utils/object'
 
 const webpackTestConfig = merge(webpackBaseConfig, {
   // use inline sourcemap for karma-sourcemap-loader

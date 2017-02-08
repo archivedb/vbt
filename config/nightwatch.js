@@ -1,11 +1,11 @@
 // @flow
 
-require('../build/register')
+require('../utils/register')
 
 const chromedriver = require('chromedriver')
 const seleniumServer = require('selenium-server')
 const { dev: config } = require('../config')
-const { projectPath } = require('../build/paths')
+const { projectPath } = require('../utils/paths')
 
 // http://nightwatchjs.org/guide#settings-file
 module.exports = {

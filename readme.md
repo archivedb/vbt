@@ -74,7 +74,7 @@ vbt build
 }
 ```
 
-### directories
+### project structure
 
 ```
 src                     → application sources
@@ -82,14 +82,13 @@ src                     → application sources
  └ index.html           → html template
 test                    → application tests
  └ e2e                  → e2e tests
-  └ reports             → e2e reports
   └ specs               → e2e specs
  └ unit                 → unit tests
-  └ coverage            → unit coverage
   └ specs               → unit specs
   └ index.js            → unit entry
-static                  → static asset files
-proxy.config.js         → dev server proxy config
+config                  → project config files
+ └ proxy.js             → dev server proxy config
+static                  → static assets
 dist                    → generated stuff
 ```
 

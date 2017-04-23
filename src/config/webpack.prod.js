@@ -31,7 +31,9 @@ const webpackProdConfig = merge(webpackBaseConfig, {
       sourceMap: true,
     }),
     // extract css into its own file
-    new ExtractTextPlugin(generateAssetsPath('css/[name].[contenthash].css')),
+    new ExtractTextPlugin({
+      filename: generateAssetsPath('css/[name].[contenthash].css'),
+    }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlPlugin({
       filename: config.index,

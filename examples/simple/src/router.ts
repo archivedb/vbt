@@ -1,9 +1,11 @@
-import * as Vue from 'vue'
-import * as Router from 'vue-router'
+import Vue from 'vue'
+import Router from 'vue-router'
 import { RouteConfig } from 'vue-router'
 
-import * as About from './views/about.vue'
-import * as NotFound from './views/not-found.vue'
+import About from './views/about.vue'
+import NotFound from './views/not-found.vue'
+
+console.log('Router', Router)
 
 Vue.use(Router)
 

@@ -4,7 +4,7 @@
   "compilerOptions": {
     "jsx": "preserve",
     "target": "es2017",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "pretty": true,
     "sourceMap": true,
@@ -15,6 +15,7 @@
     "removeComments": false,
     "strictNullChecks": true,
     "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["dom", "es6", "es2017"]
   }

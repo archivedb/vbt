@@ -32,6 +32,7 @@
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "vbt test unit",
     "test:e2e": "vbt test e2e",
-    "build": "vbt build"
+    "build": "vbt build",
+    "clean": "rm -rf dist test/e2e/reports test/unit/coverage"
   }
 }

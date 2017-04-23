@@ -64,10 +64,6 @@ export default {
       }],
       exclude: /node_modules/,
     }, {
-      // TODO https://webpack.js.org/guides/migrating/#json-loader-is-not-required-anymore
-      test: /\.json$/,
-      loader: 'json-loader',
-    }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       loader: 'url-loader',
       query: {

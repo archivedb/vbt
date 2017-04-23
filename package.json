@@ -1,6 +1,6 @@
 {
   "name": "vbt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "airt <airtial@gmail.com>",
   "license": "MIT",
   "bin": {
@@ -42,7 +42,6 @@
     "html-webpack-plugin": "^2.0.0",
     "http-proxy-middleware": "^0.17.0",
     "inject-loader": "^2.0.0",
-    "json-loader": "^0.5.0",
     "karma": "^1.0.0",
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.0.0",
@@ -78,12 +77,8 @@
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^2.0.0",
-    "flow-bin": "^0.38.0",
+    "flow-bin": "^0.44.0",
     "flow-typed": "^2.0.0"
-  },
-  "peerDependencies": {
-    "typescript": "^2.0.0",
-    "vue": "^2.0.0"
   },
   "scripts": {
     "lint": "eslint '**/*.js'",

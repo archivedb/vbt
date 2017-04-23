@@ -1,6 +1,6 @@
-import * as Vue from 'vue'
+import Vue from 'vue'
 import router from './router'
-import * as App from './components/app.vue'
+import App from './components/app.vue'
 
 export { router }
 

@@ -2,8 +2,7 @@
 
 [![Build Status][build-badge]][build-status]
 
-simple build tool for vue applications,
-used in [xms-fe](https://github.com/airt/xms-fe)
+build scripts extracted from [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
 
 ## support
 
@@ -11,8 +10,6 @@ used in [xms-fe](https://github.com/airt/xms-fe)
 - [x] e2e tests with nightwatch
 - [x] hot reload
 - [x] typescript
-- [ ] mocks
-- [ ] documents
 - [ ] custom configurations
 
 ## installation
@@ -76,7 +73,7 @@ vbt build
 
 ### project structure
 
-```
+```text
 src                     → application sources
  └ index.js             → application entry
  └ index.html           → html template

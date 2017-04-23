@@ -22,7 +22,7 @@ before_install:
   - sleep 5
 
 before_script:
-  - node_modules/.bin/flow-typed install
+  - node_modules/.bin/flow-typed install || echo 'ignored'
 
 script:
   - node_modules/.bin/flow check

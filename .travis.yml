@@ -22,7 +22,6 @@ before_install:
   - sleep 5
 
 before_script:
-  - npm i typescript vue
   - node_modules/.bin/flow-typed install
 
 script:

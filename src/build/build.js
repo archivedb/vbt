@@ -3,23 +3,18 @@
 import ora from 'ora'
 import path from 'path'
 import chalk from 'chalk'
-import shell from 'shelljs'
+import rimraf from 'rimraf'
 import webpack from 'webpack'
 
 import { build as config } from '../config'
 import webpackConfig from '../config/webpack.prod'
 
 export const start = () => {
-  const assetsPath = path.join(config.assetsRoot, config.assetsSubDirectory)
-  shell.rm('-rf', assetsPath)
-  shell.mkdir('-p', assetsPath)
-  shell.config.silent = true
-  shell.cp('-R', 'static/*', assetsPath)
-  shell.config.silent = false
-
   const spinner = ora('building for production..')
 
   spinner.start()
+
+  rimraf.sync(path.join(config.assetsRoot, config.assetsSubDirectory))
 
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()

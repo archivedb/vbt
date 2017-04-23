@@ -14,9 +14,10 @@ import { dev as config } from '../config'
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = config.env.NODE_ENV
 
-const { default: webpackConfig } = process.env.NODE_ENV === 'testing'
-  ? require('../config/webpack.prod')
-  : require('../config/webpack.dev')
+const { default: webpackConfig } =
+  process.env.NODE_ENV === 'testing'
+    ? require('../config/webpack.prod')
+    : require('../config/webpack.dev')
 
 const app = express()
 const compiler = webpack(webpackConfig)
@@ -62,20 +63,21 @@ app.use(staticPath, express.static('./static'))
 
 const server = http.createServer(app)
 
-devMiddleware.waitUntilValid(() => {
-  const url = `http://localhost:${server.address().port}`
-  console.log(`> listening at ${url}\n`)
-  if (process.env.NODE_ENV === 'development') {
-    opn(url)
-  }
-})
-
-export const start = () => {
+export const start = () => new Promise((resolve, reject) => {
   server.listen(config.port, (err) => {
-    if (err) console.error(err)
+    if (err) reject(err)
     console.log(`> server started at port ${config.port}\n`)
   })
-}
+
+  devMiddleware.waitUntilValid(() => {
+    const url = `http://localhost:${server.address().port}`
+    console.log(`> listening at ${url}\n`)
+    if (process.env.NODE_ENV === 'development') {
+      opn(url)
+    }
+    resolve()
+  })
+})
 
 export const close = () => {
   server.close()

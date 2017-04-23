@@ -7,7 +7,7 @@ const seleniumServer = require('selenium-server')
 const { dev: config } = require('../config')
 const { projectPath } = require('../utils/paths')
 
-// http://nightwatchjs.org/guide#settings-file
+// http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
   src_folders: [projectPath('test/e2e/specs')],
   output_folder: projectPath('test/e2e/reports'),

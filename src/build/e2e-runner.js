@@ -25,9 +25,9 @@ if (!existsSync(nightwatchExecPath)) {
 
 console.log(chalk.green(`using nightwatch at ${nightwatchExecPath}\n`))
 
-export const start = () => {
+export const start = async () => {
   // 1. start the dev server using production config
-  devServer.start()
+  await devServer.start()
 
   // 2. run the nightwatch test suite against it
   // to run in additional browsers:

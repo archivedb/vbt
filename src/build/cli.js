@@ -6,7 +6,6 @@ export const run = (args: Array<string>) => {
   const command = args.slice(2).join(' ')
 
   switch (command) {
-
     case 'dev':
       process.env.NODE_ENV = 'development'
       require('./dev-server').start()

@@ -1,10 +1,10 @@
-import 'src/polyfills'
-import 'src/vendors'
+import '@/polyfills'
+import '@/vendors'
 
 // https://webpack.github.io/docs/context.html
 
 // require all src files except app entry and *.html for coverage
-const srcContext = require.context('src', true, /^\.\/(?!(?:index(?:\.js)?$)|(?:.+\.html$))/)
+const srcContext = require.context('../../src', true, /^\.\/(?!(?:index(?:\.js)?$)|(?:.+\.html$))/)
 srcContext.keys().map(srcContext)
 
 // require all test files (files that ends with .spec.js)

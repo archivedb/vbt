@@ -29,14 +29,9 @@ export default {
   },
   resolve: {
     extensions: ['.vue', '.js', '.ts', '.json'],
-    modules: [
-      projectPath('src'),
-      projectPath('node_modules'),
-    ],
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
-      'src': projectPath('src'),
-      'assets': projectPath('src/assets'),
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': projectPath('src'),
     },
   },
   module: {
@@ -61,19 +56,22 @@ export default {
         loader: 'babel-loader',
       }, {
         loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
       }],
       exclude: /node_modules/,
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       loader: 'url-loader',
-      query: {
+      options: {
         limit: 10000,
         name: generateAssetsPath('images/[name].[hash:7].[ext]'),
       },
     }, {
       test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
       loader: 'url-loader',
-      query: {
+      options: {
         limit: 10000,
         name: generateAssetsPath('fonts/[name].[hash:7].[ext]'),
       },

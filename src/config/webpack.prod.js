@@ -2,11 +2,14 @@
 
 import webpack from 'webpack'
 import merge from 'webpack-merge'
+import CopyPlugin from 'copy-webpack-plugin'
 import HtmlPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { build as config } from '../config'
+import { projectPath } from '../utils/paths'
 import webpackBaseConfig from './webpack.base'
 import { stringifyObjectValues } from '../utils/object'
 import { generateAssetsPath, styleLoaders } from '../utils/webpack-assets'
@@ -33,6 +36,12 @@ const webpackProdConfig = merge(webpackBaseConfig, {
     // extract css into its own file
     new ExtractTextPlugin({
       filename: generateAssetsPath('css/[name].[contenthash].css'),
+    }),
+    // compress extracted css
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        safe: true,
+      },
     }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlPlugin({
@@ -65,6 +74,12 @@ const webpackProdConfig = merge(webpackBaseConfig, {
       name: 'manifest',
       chunks: ['vendors'],
     }),
+    // copy custom static assets
+    new CopyPlugin([{
+      from: projectPath('static'),
+      to: config.assetsSubDirectory,
+      ignore: ['.*'],
+    }]),
   ],
 })
 

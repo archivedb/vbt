@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import About from 'src/views/about.vue'
+import About from '@/views/about.vue'
 
 describe('views/about.vue', () => {
   it('should render correct contents', async () => {

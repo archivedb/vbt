@@ -11,9 +11,9 @@ yarn || npm i
 
 yarn link vbt || npm link vbt
 
+npm run clean
 npm run lint
 npm run test
 npm run build
-npm run clean
 
 cd ../..

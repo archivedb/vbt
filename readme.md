@@ -36,6 +36,9 @@ yarn add github:airt/vbt#hash000 -D
 # serve with hot reload
 vbt dev
 
+# serve with specified port
+PORT=9000 vbt dev
+
 # run unit tests
 vbt test unit
 

@@ -5,8 +5,6 @@ import { RouteConfig } from 'vue-router'
 import About from './views/about.vue'
 import NotFound from './views/not-found.vue'
 
-console.log('Router', Router)
-
 Vue.use(Router)
 
 export const routes: Array<RouteConfig> = [{

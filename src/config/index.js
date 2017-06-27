@@ -11,7 +11,7 @@ import { projectPath } from '../utils/paths'
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development'
 
-console.log(chalk.green(`[config] NODE_ENV ${process.env.NODE_ENV}\n`))
+console.log(chalk.green(`[config] NODE_ENV='${process.env.NODE_ENV}'\n`))
 
 const base = {
   assetsPublicPath: '/',

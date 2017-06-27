@@ -45,6 +45,9 @@ vbt test unit
 # run e2e tests
 vbt test e2e
 
+# run unit and e2e tests
+vbt test
+
 # build for production
 vbt build
 ```
@@ -66,7 +69,7 @@ vbt build
   },
   "scripts": {
     "dev": "vbt dev",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "vbt test",
     "test:unit": "vbt test unit",
     "test:e2e": "vbt test e2e",
     "build": "vbt build"

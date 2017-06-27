@@ -34,7 +34,7 @@
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint '**/*.js' '**/*.vue'",
     "lint:ts": "tslint '**/*.ts' -p tsconfig.json --type-check --exclude '**/*.d.ts' --exclude 'node_modules/**/*'",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "vbt test",
     "test:unit": "vbt test unit",
     "test:e2e": "vbt test e2e",
     "build": "vbt build",

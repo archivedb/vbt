@@ -11,6 +11,14 @@ export const run = (args: Array<string>) => {
       require('./dev-server').start()
       break
 
+    case 'test':
+      process.env.NODE_ENV = 'testing'
+      process.env.BABEL_ENV = 'testing'
+      process.env.PORT = '8070'
+      require('./unit-runner').start()
+      require('./e2e-runner').start()
+      break
+
     case 'test unit':
       process.env.NODE_ENV = 'testing'
       process.env.BABEL_ENV = 'testing'

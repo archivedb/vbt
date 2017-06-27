@@ -1,0 +1,20 @@
+---
+engines:
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: true
+  shellcheck:
+    enabled: true
+ratings:
+  paths:
+    - "**.js"
+    - "**.jsx"
+    - "**.md"
+    - "**.sh"
+exclude_paths:
+  - examples
+  - flow-typed
+  - node_modules

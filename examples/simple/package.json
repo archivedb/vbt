@@ -8,16 +8,16 @@
     "vue-router": "^2.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^3.0.0",
+    "@types/chai": "^4.0.0",
     "@types/mocha": "^2.0.0",
-    "@types/node": "^7.0.0",
-    "eslint": "^3.0.0",
+    "@types/node": "^8.0.0",
+    "eslint": "^4.0.0",
     "eslint-config-standard": "^10.0.0",
-    "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^3.0.0",
     "tslint": "^5.0.0",
-    "tslint-config-standard": "^5.0.0",
+    "tslint-config-standard": "^6.0.0",
     "typescript": "^2.0.0",
     "vbt": "github:airt/vbt#develop"
   },

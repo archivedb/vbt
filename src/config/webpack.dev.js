@@ -9,10 +9,10 @@ import { dev as config } from '../config'
 import webpackBaseConfig from './webpack.base'
 import { buildRootPath } from '../utils/paths'
 import { styleLoaders } from '../utils/webpack-assets'
-import { mapObjectValues, stringifyObjectValues } from '../utils/object'
+import { mapValues, stringifyValues } from '../utils/object'
 
 const addDevClientToEntry =
-  mapObjectValues(v => [v].concat(buildRootPath('build/dev-client')))
+  mapValues(v => [v].concat(buildRootPath('build/dev-client')))
 
 export default merge(webpackBaseConfig, {
   devtool: '#cheap-module-eval-source-map',
@@ -22,7 +22,7 @@ export default merge(webpackBaseConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': stringifyObjectValues(config.env),
+      'process.env': stringifyValues(config.env),
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),

@@ -5,14 +5,14 @@ import eslintFriendlyFormatter from 'eslint-friendly-formatter'
 
 import config from '../config'
 import vueLoaderConfig from '../config/vue-loader'
+import { mapValues } from '../utils/object'
 import { projectPath } from '../utils/paths'
-import { mapObjectValues } from '../utils/object'
 import { generateAssetsPath } from '../utils/webpack-assets'
 
-const projectPackageConfig =
+const projectPackageConfig: { entry: { [string]: string } } =
   JSON.parse(readFileSync(projectPath('package.json'), 'utf-8'))
 
-const makeEntryPathAbsolute = mapObjectValues(projectPath)
+const makeEntryPathAbsolute = mapValues(projectPath)
 
 const entry = makeEntryPathAbsolute(projectPackageConfig.entry || {
   entry: {

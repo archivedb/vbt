@@ -6,7 +6,7 @@ import merge from 'webpack-merge'
 import config from '../config'
 import webpackBaseConfig from './webpack.base'
 import { styleLoaders } from '../utils/webpack-assets'
-import { stringifyObjectValues } from '../utils/object'
+import { stringifyValues } from '../utils/object'
 
 const webpackTestConfig = merge(webpackBaseConfig, {
   // use inline sourcemap for karma-sourcemap-loader
@@ -24,7 +24,7 @@ const webpackTestConfig = merge(webpackBaseConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': stringifyObjectValues(config.env),
+      'process.env': stringifyValues(config.env),
     }),
   ],
 })

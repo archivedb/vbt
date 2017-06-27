@@ -6,7 +6,7 @@ import chalk from 'chalk'
 import devEnv from './env.dev'
 import prodEnv from './env.prod'
 import testEnv from './env.test'
-import { getConfig } from '../utils/get-config'
+import { loadConfig } from '../utils/load-config'
 import { projectPath } from '../utils/paths'
 
 if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development'
@@ -33,7 +33,7 @@ export const dev = {
   ...base,
   env: devEnv,
   port: Number(process.env.PORT || 8080),
-  proxyTable: getConfig('proxy'),
+  proxyTable: loadConfig('proxy', {}),
   // css sourcemaps off by default because relative paths are "buggy"
   // with this option, according to the css-loader readme
   // (https://github.com/webpack/css-loader#sourcemaps)

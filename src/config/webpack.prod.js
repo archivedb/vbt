@@ -8,10 +8,10 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
+import webpackBaseConfig from './webpack.base'
 import { build as config } from '../config'
 import { projectPath } from '../utils/paths'
-import webpackBaseConfig from './webpack.base'
-import { stringifyObjectValues } from '../utils/object'
+import { stringifyValues } from '../utils/object'
 import { generateAssetsPath, styleLoaders } from '../utils/webpack-assets'
 
 const webpackProdConfig = merge(webpackBaseConfig, {
@@ -27,7 +27,7 @@ const webpackProdConfig = merge(webpackBaseConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': stringifyObjectValues(config.env),
+      'process.env': stringifyValues(config.env),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },

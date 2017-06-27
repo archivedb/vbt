@@ -39,9 +39,9 @@ export const start = async () => {
   const nightwatchProcess =
     spawn(nightwatchExecPath, options, { stdio: 'inherit' })
 
-  nightwatchProcess.on('error', (err) => {
+  nightwatchProcess.on('error', (e) => {
     devServer.close()
-    throw err
+    throw e
   })
 
   nightwatchProcess.on('exit', (code) => {

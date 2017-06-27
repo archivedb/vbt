@@ -16,9 +16,9 @@ export const start = () => {
 
   rimraf.sync(path.join(config.assetsRoot, config.assetsSubDirectory))
 
-  webpack(webpackConfig, (err, stats) => {
+  webpack(webpackConfig, (e, stats) => {
     spinner.stop()
-    if (err) throw err
+    if (e) throw e
 
     process.stdout.write(stats.toString({
       colors: true,

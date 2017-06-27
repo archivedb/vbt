@@ -1,10 +1,9 @@
-// if file not exist, return undefined
-export const dynamicImportSync = (file: string) => {
+// if not exist, return undefined
+export const dynamicImportSync = (id: string): ?mixed => {
   try {
-    const oct = require(file)
-    const ct = oct.__esModule ? oct.default : oct
-    return ct
-  } catch (err) {
+    const m = require(id)
+    return m.__esModule ? m.default : m
+  } catch (e) {
     return undefined
   }
 }

@@ -3,18 +3,18 @@
 import ora from 'ora'
 import path from 'path'
 import chalk from 'chalk'
-import rimraf from 'rimraf'
+import trash from 'trash'
 import webpack from 'webpack'
 
 import { build as config } from '../config'
 import webpackConfig from '../config/webpack.prod'
 
-export const start = () => {
+export const start = async () => {
   const spinner = ora('building for production..')
 
   spinner.start()
 
-  rimraf.sync(path.join(config.assetsRoot, config.assetsSubDirectory))
+  await trash([path.join(config.assetsRoot, config.assetsSubDirectory)])
 
   webpack(webpackConfig, (e, stats) => {
     spinner.stop()

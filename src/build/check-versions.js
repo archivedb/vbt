@@ -7,17 +7,17 @@ import childprocess from 'child_process'
 const exec = (cmd) =>
   childprocess.execSync(cmd).toString().trim()
 
-const versionRequirements = [{
-  name: 'node',
-  current: semver.clean(process.version),
-  requirement: '>= 4.0.0',
-}, {
-  name: 'npm',
-  current: exec('npm --version'),
-  requirement: '>= 3.0.0',
-}]
+export const check = async () => {
+  const versionRequirements = [{
+    name: 'node',
+    current: semver.clean(process.version),
+    requirement: '>= 4.0.0',
+  }, {
+    name: 'npm',
+    current: exec('npm --version'),
+    requirement: '>= 3.0.0',
+  }]
 
-export const check = () => {
   const warnings = versionRequirements.reduce((warnings, mod) => (
     semver.satisfies(mod.current, mod.requirement)
       ? warnings

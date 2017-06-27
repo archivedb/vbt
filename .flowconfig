@@ -1,8 +1,8 @@
 [ignore]
 .*/dist/.*
-.*/docs/.*
 .*/reports/.*
 .*/coverage/.*
-.*/node_modules/.*
+.*/examples/simple/.*
+.*/node_modules/.+/test/.*
 
 [libs]

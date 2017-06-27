@@ -58,7 +58,7 @@ vbt build
     "vue": "^2.0.0"
   },
   "devDependencies": {
-    "typescript": "^2.1.0",
+    "typescript": "^2.0.0",
     "vbt": "github:airt/vbt#hash000"
   },
   "entry": {

@@ -2,6 +2,7 @@
 
 [![Build Status][build-badge]][build-status]
 [![Code Climate][codeclimate-badge]][codeclimate-status]
+[![NPM Version][npm-badge]][npm-url]
 
 build scripts extracted from [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
 
@@ -15,17 +16,18 @@ build scripts extracted from [vuejs-templates/webpack](https://github.com/vuejs-
 
 ## installation
 
-```sh
-# install from github
-yarn add github:airt/vbt#develop -D
+`yarn add vbt`
 
-# install from github with tag
-yarn add github:airt/vbt#v0.0.1 -D
+or
 
-# install from github with hash
-# maybe need `yarn cache clean`
-yarn add github:airt/vbt#hash000 -D
-```
+`npm install vbt --save`
+
+or
+
+install from github with hash
+(maybe need `yarn cache clean`)
+
+`yarn add github:airt/vbt#hash000 -D`
 
 ## usage
 
@@ -104,3 +106,5 @@ MIT
 [build-status]: https://travis-ci.org/airt/vbt
 [codeclimate-badge]: https://img.shields.io/codeclimate/github/airt/vbt.svg
 [codeclimate-status]: https://codeclimate.com/github/airt/vbt
+[npm-badge]: https://img.shields.io/npm/v/vbt.svg
+[npm-url]: https://www.npmjs.com/package/vbt

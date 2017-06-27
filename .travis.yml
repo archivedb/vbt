@@ -3,7 +3,7 @@ language: node_js
 dist: trusty
 
 node_js:
-  - "7"
+  - "8"
 
 addons:
   apt:
@@ -28,7 +28,6 @@ script:
   - node_modules/.bin/flow check
   - npm run lint
   - npm test
-  - test/run-examples-tests.sh
 
 # after_success:
 #   - npm i coveralls && cat test/unit/coverage/lcov.info | coveralls

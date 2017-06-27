@@ -3,9 +3,9 @@
 set -e
 set -x
 
-yarn link || npm link
+examplepath=$1
 
-cd examples/simple
+cd "$examplepath"
 
 yarn || npm i
 
@@ -15,5 +15,3 @@ npm run clean
 npm run lint
 npm run test
 npm run build
-
-cd ../..

@@ -11,8 +11,8 @@ const { projectPath } = require('../utils/paths')
 module.exports = {
   src_folders: [projectPath('test/e2e/specs')],
   output_folder: projectPath('test/e2e/reports'),
-  custom_commands_path: [projectPath('node_modules/nightwatch-helpers/commands')],
-  custom_assertions_path: [projectPath('node_modules/nightwatch-helpers/assertions')],
+  custom_commands_path: [projectPath('node_modules/nightwatch-helpers/commands'), projectPath('test/e2e/commands')],
+  custom_assertions_path: [projectPath('node_modules/nightwatch-helpers/assertions'), projectPath('test/e2e/assertions')],
 
   selenium: {
     start_process: true,

@@ -1,5 +1,4 @@
 {
-  "comments": false,
   "presets": [
     "stage-2",
     ["env", { "modules": false }]

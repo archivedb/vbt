@@ -8,7 +8,7 @@ const options = {
   singleRun: true,
 }
 
-export const start = () => new Promise((resolve, reject) => {
+export const start = (): Promise<void> => new Promise((resolve, reject) => {
   // https://karma-runner.github.io/latest/dev/public-api.html
   const server = new karma.Server(options, resolve)
 

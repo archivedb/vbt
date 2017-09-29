@@ -15,7 +15,7 @@ import { dev as config } from '../config'
 if (!process.env.NODE_ENV) process.env.NODE_ENV = config.env.NODE_ENV
 
 const { default: webpackConfig } =
-  process.env.NODE_ENV === 'testing'
+  ['testing', 'production'].includes(process.env.NODE_ENV)
     ? require('../config/webpack.prod')
     : require('../config/webpack.dev')
 
@@ -36,7 +36,8 @@ const devMiddleware = createDevMiddleware(compiler, {
 })
 
 const hotMiddleware = createHotMiddleware(compiler, {
-  log: () => {},
+  log: false,
+  heartbeat: 2000,
 })
 
 // force page reload when html-webpack-plugin template changes

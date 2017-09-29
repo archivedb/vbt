@@ -16,29 +16,38 @@ export const start = async () => {
 
   await trash([path.join(config.assetsRoot, config.assetsSubDirectory)])
 
-  webpack(webpackConfig, (e, stats) => {
-    spinner.stop()
-    if (e) throw e
+  return new Promise((resolve, reject) =>
+    webpack(webpackConfig, (e, stats) => {
+      spinner.stop()
+      if (e) throw e
 
-    process.stdout.write(stats.toString({
-      colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false,
-    }) + '\n\n')
+      console.log(stats.toString({
+        colors: true,
+        modules: false,
+        children: false,
+        chunks: false,
+        chunkModules: false,
+      }))
 
-    console.log(chalk.cyan(`
-      Build complete.
-    `.trimRight()))
-    console.log(chalk.yellow(`
-      Tips:
-        Built files are meant to be served over an http server.
-        Open index.html over file:// won't work.
-    `))
-  })
-
-  return 0
+      if (stats.hasErrors()) {
+        console.log(chalk.red(`
+          Build failed with errors.
+          ${stats.toJson().errors}
+        `))
+        resolve(1)
+      } else {
+        console.log(chalk.cyan(`
+          Build complete.
+        `.trimRight()))
+        console.log(chalk.yellow(`
+          Tips:
+            Built files are meant to be served over an http server.
+            Open index.html over file:// won't work.
+        `))
+        resolve(0)
+      }
+    })
+  )
 }
 
 export default { start }

@@ -58,6 +58,8 @@ const webpackProdConfig = merge(webpackBaseConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
     }),
+    // keep module.id stable when vender modules does not change
+    new webpack.HashedModuleIdsPlugin(),
     // split vendors js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',

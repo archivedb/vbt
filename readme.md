@@ -16,18 +16,14 @@ build scripts extracted from [vuejs-templates/webpack](https://github.com/vuejs-
 
 ## installation
 
-`yarn add vbt`
-
-or
-
 `npm install vbt --save`
 
-or
-
+<!--
 install from github with hash
 (maybe need `yarn cache clean`)
 
 `yarn add github:airt/vbt#hash000 -D`
+-->
 
 ## usage
 

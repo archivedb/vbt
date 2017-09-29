@@ -1,4 +1,4 @@
-// https://github.com/feross/eslint-config-standard/blob/master/eslintrc.json
+// https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json
 module.exports = {
   root: true,
   extends: 'standard',

@@ -2,4 +2,4 @@
 
 require('../src/utils/register')
 
-require('../src/build/cli').run(process.argv)
+require('../src/build/cli').run(process.argv).then(process.exit)

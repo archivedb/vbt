@@ -63,7 +63,7 @@ app.use(staticPath, express.static('./static'))
 
 const server = http.createServer(app)
 
-export const start = (): Promise<void> => new Promise((resolve, reject) => {
+export const start = (): Promise<number> => new Promise((resolve, reject) => {
   server.listen(config.port, (e) => {
     if (e) reject(e)
     console.log(`> server started at port ${config.port}\n`)
@@ -75,7 +75,7 @@ export const start = (): Promise<void> => new Promise((resolve, reject) => {
     if (process.env.NODE_ENV === 'development') {
       opn(url)
     }
-    resolve()
+    resolve(0)
   })
 })
 

@@ -36,17 +36,19 @@ export const start = async () => {
   // or override the environment flag, for example: `npm run e2e -- --env chrome,firefox`
   // for more information on nightwatch's config file, see
   // http://nightwatchjs.org/guide#settings-file
-  const nightwatchProcess =
+  return new Promise((resolve, reject) => {
+    const nightwatchProcess =
     spawn(nightwatchExecPath, options, { stdio: 'inherit' })
 
-  nightwatchProcess.on('error', (e) => {
-    devServer.close()
-    throw e
-  })
+    nightwatchProcess.on('error', (e) => {
+      devServer.close()
+      reject(e)
+    })
 
-  nightwatchProcess.on('exit', (code) => {
-    devServer.close()
-    process.exit(code)
+    nightwatchProcess.on('exit', (exitCode) => {
+      devServer.close()
+      resolve(exitCode)
+    })
   })
 }
 

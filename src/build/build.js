@@ -37,6 +37,8 @@ export const start = async () => {
         Open index.html over file:// won't work.
     `))
   })
+
+  return 0
 }
 
 export default { start }

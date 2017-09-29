@@ -15,4 +15,10 @@ export default {
     sourceMap: cssSourceMap,
     extract: process.env.NODE_ENV === 'production',
   }),
+  transformToRequire: {
+    video: 'src',
+    source: 'src',
+    img: 'src',
+    image: 'xlink:href',
+  },
 }

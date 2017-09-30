@@ -10,7 +10,9 @@ export const run = async (args: Array<string>) => {
   switch (command) {
     case 'dev':
       process.env.NODE_ENV = 'development'
-      exitCode += await require('./dev-server').start()
+      await require('./dev-server').start()
+      // avoid exiting immediately
+      await (new Promise(() => {}))
       break
 
     case 'test':

@@ -61,7 +61,7 @@ vbt build
   },
   "devDependencies": {
     "typescript": "^2.0.0",
-    "vbt": "github:airt/vbt#hash000"
+    "vbt": "^0.1.0"
   },
   "entry": {
     "app": "src/index.js"

@@ -29,9 +29,12 @@ const webpackProdConfig = merge(webpackBaseConfig, {
     new webpack.DefinePlugin({
       'process.env': stringifyValues(config.env),
     }),
+    // UglifyJs do not support ES6+, you can also use babel-minify for better treeshaking:
+    // https://github.com/babel/minify
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
       sourceMap: true,
+      parallel: true,
     }),
     // extract css into its own file
     new ExtractTextPlugin({
@@ -39,9 +42,9 @@ const webpackProdConfig = merge(webpackBaseConfig, {
     }),
     // compress extracted css
     new OptimizeCSSPlugin({
-      cssProcessorOptions: {
-        safe: true,
-      },
+      cssProcessorOptions: config.productionSourceMap
+        ? { safe: true, map: { inline: false } }
+        : { safe: true },
     }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlPlugin({

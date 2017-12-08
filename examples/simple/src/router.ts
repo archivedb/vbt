@@ -1,11 +1,10 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import { RouteConfig } from 'vue-router'
+import VueRouter, { RouteConfig } from 'vue-router'
 
 import About from './views/about.vue'
 import NotFound from './views/not-found.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
 export const routes: Array<RouteConfig> = [{
   path: '/',
@@ -18,7 +17,7 @@ export const routes: Array<RouteConfig> = [{
   component: NotFound,
 }]
 
-export default new Router({
+export default new VueRouter({
   mode: 'history',
   routes,
 })

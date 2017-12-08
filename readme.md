@@ -1,7 +1,8 @@
 # vbt
 
+[DEPRECATED]
+
 [![Build Status][build-badge]][build-status]
-[![Code Climate][codeclimate-badge]][codeclimate-status]
 [![NPM Version][npm-badge]][npm-url]
 
 build scripts extracted from [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
@@ -100,7 +101,5 @@ MIT
 
 [build-badge]: https://img.shields.io/travis/airt/vbt/develop.svg
 [build-status]: https://travis-ci.org/airt/vbt
-[codeclimate-badge]: https://img.shields.io/codeclimate/github/airt/vbt.svg
-[codeclimate-status]: https://codeclimate.com/github/airt/vbt
 [npm-badge]: https://img.shields.io/npm/v/vbt.svg
 [npm-url]: https://www.npmjs.com/package/vbt

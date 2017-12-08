@@ -22,14 +22,6 @@ const { default: webpackConfig } =
 const app = express()
 const compiler = webpack(webpackConfig)
 
-// https://github.com/chimurai/http-proxy-middleware
-Object.entries(config.proxyTable).forEach(([context, options]) => {
-  app.use(createProxyMiddleware(
-    (options: any).filter || context,
-    typeof options === 'string' ? { target: options } : options,
-  ))
-})
-
 const devMiddleware = createDevMiddleware(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true,
@@ -40,12 +32,26 @@ const hotMiddleware = createHotMiddleware(compiler, {
   heartbeat: 2000,
 })
 
-// force page reload when html-webpack-plugin template changes
-compiler.plugin('compilation', (compilation) => {
-  compilation.plugin('html-webpack-plugin-after-emit', (data, callback) => {
-    hotMiddleware.publish({ action: 'reload' })
-    callback()
-  })
+// currently disabled until this is resolved:
+// https://github.com/jantimon/html-webpack-plugin/issues/680
+// // force page reload when html-webpack-plugin template changes
+// compiler.plugin('compilation', (compilation) => {
+//   compilation.plugin('html-webpack-plugin-after-emit', (data, callback) => {
+//     hotMiddleware.publish({ action: 'reload' })
+//     callback()
+//   })
+// })
+
+// enable hot-reload and state-preserving
+// compilation error display
+app.use(hotMiddleware)
+
+// https://github.com/chimurai/http-proxy-middleware
+Object.entries(config.proxyTable).forEach(([context, options]) => {
+  app.use(createProxyMiddleware(
+    (options: any).filter || context,
+    typeof options === 'string' ? { target: options } : options,
+  ))
 })
 
 // handle fallback for html5 history api
@@ -53,9 +59,6 @@ app.use(createHistoryApiFallback())
 
 // serve webpack bundle output
 app.use(devMiddleware)
-
-// enable hot-reload and state-preserving compilation error display
-app.use(hotMiddleware)
 
 // serve pure static assets
 const staticPath = path.posix.join(config.assetsPublicPath, config.assetsSubDirectory)
